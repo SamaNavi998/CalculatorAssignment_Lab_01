@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Calculator Assignment Suite" verbose="1">
+
+    <!-- Combination 1: Only VALID partition (all positive tests) -->
+    <test name="1 - Valid Partition Only (base + normal + boundary)">
+        <groups>
+            <run>
+                <include name="valid"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestCalculator.CalculatorLucasTest"/>
+        </classes>
+    </test>
+
+    <!-- Combination 2: Only INVALID partition (negative inputs) -->
+    <test name="2 - Invalid Partition Only (StackOverflowError)">
+        <groups>
+            <run>
+                <include name="invalid"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestCalculator.CalculatorLucasTest"/>
+        </classes>
+    </test>
+
+    <!-- Combination 3: Only BASE cases (sub-group of valid) -->
+    <test name="3 - Base Cases Only">
+        <groups>
+            <run>
+                <include name="base"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestCalculator.CalculatorLucasTest"/>
+        </classes>
+    </test>
+
+    <!-- Combination 4: Normal + Boundary cases (without base) -->
+    <test name="4 - Normal + Boundary Only">
+        <groups>
+            <run>
+                <include name="normal"/>
+                <include name="boundary"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestCalculator.CalculatorLucasTest"/>
+        </classes>
+    </test>
+
+    <!-- Combination 5: Run ALL tests together -->
+    <test name="5 - All Tests (Valid + Invalid)">
+        <classes>
+            <class name="TestCalculator.CalculatorLucasTest"/>
+        </classes>
+    </test>
+
+</suite>
